@@ -79,12 +79,12 @@ Namespace Controllers
             cmd.Parameters.Add("CLI_NOMBRE2", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.nombre2
             cmd.Parameters.Add("CLI_OTROSNOMBRES", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.otronombre
             cmd.Parameters.Add("CLI_APELLIDO1", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.apellido1
-            cmd.Parameters.Add("CLI_APELLIDO2", OracleDbType.Varchar2, ParameterDirection.Input).Value = "lastname2"
-            cmd.Parameters.Add("CLI_APELLIDOCASADA", OracleDbType.Varchar2, ParameterDirection.Input).Value = "n/a"
+            cmd.Parameters.Add("CLI_APELLIDO2", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.apellido2
+            cmd.Parameters.Add("CLI_APELLIDOCASADA", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.apellidoCasada
             cmd.Parameters.Add("CLI_ESTADO", OracleDbType.Varchar2, ParameterDirection.Input).Value = 1
-            cmd.Parameters.Add("CLI_PROFESION", OracleDbType.Varchar2, ParameterDirection.Input).Value = "developer"
-            cmd.Parameters.Add("CLI_TIPO_PERSONA", OracleDbType.Varchar2, ParameterDirection.Input).Value = 2
-            cmd.Parameters.Add("CLI_NIT", OracleDbType.Varchar2, ParameterDirection.Input).Value = 1453132
+            cmd.Parameters.Add("CLI_PROFESION", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.profesion
+            cmd.Parameters.Add("CLI_TIPO_PERSONA", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.tipopersona
+            cmd.Parameters.Add("CLI_NIT", OracleDbType.Varchar2, ParameterDirection.Input).Value = cliente.nit
 
             cmd.ExecuteNonQuery()
             connection.Close()
