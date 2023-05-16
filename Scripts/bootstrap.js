@@ -3,6 +3,9 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under the MIT license
  */
+/*
+ prueba de version de archivos feature/ah-001
+ */
 
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
