@@ -18,7 +18,7 @@ Namespace Controllers
                 Dim connectivity = True
             End If
 
-            Dim cmd As New OracleCommand("proc_get_Clientes", connection)
+            Dim cmd As New OracleCommand("pr_get_Clientes", connection)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim salida As New OracleParameter("resultado", OracleDbType.RefCursor)
@@ -70,7 +70,7 @@ Namespace Controllers
                 Dim connectivity = True
             End If
             'PROC
-            Dim cmd As New OracleCommand("PROC_SET_CLIENTE", connection)
+            Dim cmd As New OracleCommand("PR_SET_CLIENTE", connection)
             cmd.CommandType = CommandType.StoredProcedure
 
             'Method
@@ -141,7 +141,7 @@ Namespace Controllers
             Dim cliente = New Cliente()
             cliente.cli_num_doc = id
 
-            Dim cmd As New OracleCommand("proc_get_Cliente", connection)
+            Dim cmd As New OracleCommand("pr_get_Cliente", connection)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim salida As New OracleParameter("resultado", OracleDbType.RefCursor)
@@ -181,7 +181,7 @@ Namespace Controllers
             Dim connection As New OracleConnection(cn)
             connection.Open()
 
-            Dim cmd = New OracleCommand("PROC_UPDATE_CLIENTES", connection)
+            Dim cmd = New OracleCommand("PR_UPDATE_CLIENTES", connection)
             cmd.CommandType = CommandType.StoredProcedure
 
             cmd.Parameters.Add("CLI_NUMERO_DOCUMENTO", OracleDbType.Int32, ParameterDirection.Input).Value = cliente.cli_num_doc
@@ -209,7 +209,7 @@ Namespace Controllers
             Dim connection As New OracleConnection(cn)
             connection.Open()
 
-            Dim cmd = New OracleCommand("PROC_DELETE_CLIENTE", connection)
+            Dim cmd = New OracleCommand("PR_DELETE_CLIENTE", connection)
             cmd.CommandType = CommandType.StoredProcedure
 
             cmd.Parameters.Add("CLI_NUMERO_DOCUMENTO", OracleDbType.Int32, ParameterDirection.Input).Value = id
