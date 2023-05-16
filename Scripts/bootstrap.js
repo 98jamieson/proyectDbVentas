@@ -6,6 +6,9 @@
 /*
  prueba de version de archivos feature/ah-001
  */
+/*
+ segundo cambiod en el archivo con la nueva rama feature/ah-002
+ */
 
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
