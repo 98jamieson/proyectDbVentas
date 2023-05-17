@@ -183,10 +183,12 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\ClienteController.vb" />
+    <Compile Include="Controllers\ProductoController.vb" />
     <Compile Include="Controllers\VentaController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Producto.vb" />
     <Compile Include="Models\Cliente.vb" />
     <Compile Include="Models\Venta.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -254,9 +256,13 @@
     <Content Include="Views\Cliente\Index.vbhtml" />
     <Content Include="Views\Cliente\setNewCliente.vbhtml" />
     <Content Include="Views\Cliente\selectCliente.vbhtml" />
+
     <Content Include="Views\Venta\Index.vbhtml" />
     <Content Include="Views\Venta\existingclientes.vbhtml" />
-    <Content Include="Views\Venta\setNewVenta.vbhtml" />
+   
+
+    <Content Include="Views\Producto\Index.vbhtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

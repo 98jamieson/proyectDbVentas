@@ -16,6 +16,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
+@*validad menu para las personas que ya se hayan logeado*@ 
                 @Html.ActionLink("MUEBLES ALPES", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
@@ -24,6 +26,7 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                    <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
                 </ul>
             </div>
         </div>
