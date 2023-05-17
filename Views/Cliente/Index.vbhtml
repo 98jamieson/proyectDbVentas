@@ -19,6 +19,7 @@ End Code
             <th>otro nombre</th>
             <th>apellido</th>
             <th>apellido 2</th>
+            <th>NIT</th>
         </tr>
     </thead>
     <tbody>
@@ -45,6 +46,9 @@ End Code
 
                 <td>
                     @item.apellido2
+                </td>
+                <td>
+                    @item.nit
                 </td>
 
                 <td>

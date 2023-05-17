@@ -41,6 +41,7 @@ Namespace Controllers
                     'IsDBNull en caso retorne vacio 
                     cli.apellido1 = row("CLI_APELLIDO1").ToString()
                     cli.apellido2 = row("CLI_APELLIDO2")
+                    cli.nit = row("CLI_NIT")
                     clientes.Add(cli)
                 Next
             Else
@@ -148,7 +149,7 @@ Namespace Controllers
             salida.Direction = ParameterDirection.Output
 
             cmd.Parameters.Add(salida)
-            cmd.Parameters.Add("CLI_NUMERO_DOCUMENTO", OracleDbType.Int32).Value = Cliente.cli_num_doc
+            cmd.Parameters.Add("CLI_NUMERO_DOCUMENTO", OracleDbType.Int32).Value = cliente.cli_num_doc
 
             Using reader As OracleDataReader = cmd.ExecuteReader()
                 If reader IsNot Nothing AndAlso reader.HasRows Then
