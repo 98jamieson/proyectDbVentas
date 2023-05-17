@@ -188,6 +188,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.vb" />
+    <Compile Include="Models\Venta.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -253,6 +254,9 @@
     <Content Include="Views\Cliente\Index.vbhtml" />
     <Content Include="Views\Cliente\setNewCliente.vbhtml" />
     <Content Include="Views\Cliente\selectCliente.vbhtml" />
+    <Content Include="Views\Venta\Index.vbhtml" />
+    <Content Include="Views\Venta\existingclientes.vbhtml" />
+    <Content Include="Views\Venta\setNewVenta.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -283,7 +287,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Venta\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
