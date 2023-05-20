@@ -2,30 +2,44 @@
     ViewData("Title") = "Home Page"
 End Code
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div style="position: relative; width: 100%; height: 0; padding-top: 41.6667%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform; background-image: url('https://ruta-de-tu-imagen/alpes.png');">
+    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+            src="https://www.canva.com/design/DAFjO6zLLO8/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+    </iframe>
 </div>
+ 
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="card">
+            <img src="~/Image/sillon.png" alt="Sofás y Sillones" class="card-img-top" width="200px">
+            <div class="card-body">
+                <h2 class="card-title">Sillones Marino</h2>
+                <p class="card-text">Encuentra sofás y sillones cómodos y elegantes para tu sala de estar.</p>
+                <a class="btn btn-primary" @Html.ActionLink("Ver más", "Index", "Cliente")</a>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <div class="card">
+            <img src="~/Image/sillonce.png" alt="Sofás y Sillones" class="card-img-top" width="200px">
+            <div class="card-body">
+                <h2 class="card-title">Sillones Luxury</h2>
+                <p class="card-text">Descubre nuestro hermoso sofa Lexury.</p>
+                <a class="btn btn-primary" href="https://tu-tienda-de-muebles.com/categoria/comedores">Ver más &raquo;</a>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="card">
+            <img src="~/Image/sillonNeAm.png" alt="Sofás y Sillones" class="card-img-top" width="200px">
+            <div class="card-body">
+                <h2 class="card-title">Sillones Furniture</h2>
+                <p class="card-text">Encuentra los juegos de sala modernos.</p>
+                <a class="btn btn-primary" href="https://tu-tienda-de-muebles.com/categoria/camas">Ver más &raquo;</a>
+            </div>
+        </div>
     </div>
 </div>
