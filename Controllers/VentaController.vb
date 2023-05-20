@@ -8,6 +8,7 @@ Namespace Controllers
         ' GET: Venta
         Function Index() As ActionResult
 
+            'CONEXION A DB
             Dim cn As String = ConfigurationManager.ConnectionStrings("proyectdb").ConnectionString
             Dim connection As New OracleConnection(cn)
             connection.Open()
@@ -45,30 +46,73 @@ Namespace Controllers
         End Function
 
 
-        <HttpPost>
+        '<HttpPost>
         Function setVenta()
 
-            Dim cli As New List(Of Cliente)
+            Dim venta = New VentaModelo
+            Dim detalle = New VentaDetalle
+            detalle.subtotal = 10.0
+            detalle.productoReferencia = 1
+            detalle.cantidad = 10
+            venta.venta = New Venta
+            venta.venta.detalles = New List(Of VentaDetalle)
+            venta.venta.detalles.Add(detalle)
 
-            cli = searchClientes()
 
+            'Conexion
             Dim cn As String = ConfigurationManager.ConnectionStrings("proyectdb").ConnectionString
             Dim connection As New OracleConnection(cn)
             connection.Open()
 
+
+
             If (connection.State = ConnectionState.Open) Then
                 Dim connectivity = True
             End If
+            Dim oraTransaction As OracleTransaction = connection.BeginTransaction(IsolationLevel.ReadCommitted)
             'PROC
-            Dim cmd As New OracleCommand("PR_SET_VENTA", connection)
-            cmd.CommandType = CommandType.StoredProcedure
 
-            'Method
-            cmd.Parameters.Add("CLI_NUMERO_DOCUMENTO", OracleDbType.Int32, ParameterDirection.Input).Value = 2
+            Try
 
-            cmd.ExecuteNonQuery()
+                'ENCABEZADO
+                Dim cmd As New OracleCommand("PR_CREAR_FACTURA", connection)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Transaction = oraTransaction
+
+                cmd.Parameters.Add("P_CLI_NUMERO_DOCUMENTO", OracleDbType.Int32, ParameterDirection.Input).Value = 1
+
+
+                Dim salida As New OracleParameter("P_ID_VENTA", OracleDbType.Int32)
+                salida.Direction = ParameterDirection.Output
+
+                cmd.Parameters.Add(salida)
+
+                Dim pk = cmd.ExecuteNonQuery()
+                Dim aux = salida.Value
+                'DETALLE
+
+                For Each det As VentaDetalle In venta.venta.detalles
+
+                    Dim cmd2 As New OracleCommand("PR_CREAR_DET_FACTURA", connection)
+                    cmd2.CommandType = CommandType.StoredProcedure
+                    cmd2.Transaction = oraTransaction
+
+                    cmd2.Parameters.Add("P_VEN_ID_VENTA", OracleDbType.Int32, ParameterDirection.Input).Value = aux
+                    cmd2.Parameters.Add("P_PRO_REFERENCIA", OracleDbType.Int32, ParameterDirection.Input).Value = det.productoReferencia
+                    cmd2.Parameters.Add("P_DETA_CANTIDAD", OracleDbType.Int32, ParameterDirection.Input).Value = det.cantidad
+                    cmd2.Parameters.Add("P_DETA_SUBTOTAL", OracleDbType.Double, ParameterDirection.Input).Value = det.subtotal
+
+                    cmd2.ExecuteNonQuery()
+                Next
+
+                oraTransaction.Commit()
+
+            Catch ex As Exception
+                oraTransaction.Rollback()
+                Throw ex
+            End Try
+
             connection.Close()
-
             Return Redirect("~/Venta")
 
         End Function
@@ -128,10 +172,18 @@ Namespace Controllers
         End Function
 
 
+        Function setNewVentaModel()
+            Dim cli As New List(Of Cliente)
+            cli = searchClientes()
+            Return View(cli)
+        End Function
 
+        <HttpPost>
+        Function Buscar(ByVal item As String)
+            Dim vals = item
 
-
-
+            Return View()
+        End Function
 
 
 

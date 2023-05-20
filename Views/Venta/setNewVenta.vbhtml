@@ -1,10 +1,23 @@
 ﻿
-@Modeltype  List(Of Cliente)
+@Modeltype List(Of Cliente)
 @Code
     ViewData("Title") = "setNewVenta"
+    Dim inputValue As String = ""
+
 End Code
 
-<h2>Registrar Venta</h2>
+
+<h2 id="titulo">Registrar Venta</h2>
+
+@Using (Html.BeginForm("YourAction", "YourController"))
+
+
+
+
+End Using
+
+
+
 
 <div>
     <div class="form-group">
@@ -20,56 +33,82 @@ End Code
 </div>
 
 
+
+
+
+
+
+
 <div class="row">
     <div class="col-md-2">
 
         <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="codigo" haria-describedby="inputGroup-sizing-sm">
+            <input type="text" class="form-control" id="lblcodigo" aria-label="Sizing example input" placeholder="codigo" haria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col-md-2">
+
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" placeholder="cantidad">
+        </div>
+    </div>
+
+    <div class="col-md-2">
+
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" placeholder="descripcion" disabled>
         </div>
     </div>
     <div class="col-md-2">
 
         <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control"  placeholder="cantidad" >
-        </div>
-    </div>
-
-    <div class="col-md-2">
-
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control"  placeholder="descripcion" disabled>
-        </div>
-    </div>
-    <div class="col-md-2">
-
-        <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control"  placeholder="precio" disabled >
+            <input type="text" class="form-control" placeholder="precio" disabled>
         </div>
     </div>
     <div class="col-md-2">
         <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control"placeholder="subtotal" disabled >
+            <input type="text" class="form-control" placeholder="subtotal" disabled>
         </div>
+    </div>
+
+    
+    <div>
+        <h1 id="resultado"></h1>
     </div>
 </div>
 
+<script>
+
+    $(document).ready(function () {
+
+        //$('#titulo').html('nuevo texto desde jquery');
+
+        $('#lblcodigo').on("keyup", function (e) {
+            let cod = $(this).val();
+            console.log(cod)
+            }
+        )
+
+
+
+    });
+
+</script>
 
 
 
 
-
-
-
-@*@For Each item In Model
-        @<tr>
-            <td>
-                @item.cli_num_doc
-            </td>
-        </tr>
-        @<tr>
-            <td>
-                @item.nombre1
-            </td>
-        </tr>
-
-    Next*@

@@ -11,9 +11,9 @@ End Code
 <table class="table">
     <thead>
         <tr>
-            <th>Id Venta</th>
-            <th>Fecha Venta</th>
-            <th>No Documento</th>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
         </tr>
     </thead>
     <tbody>
@@ -29,12 +29,7 @@ End Code
                 <td>
                     @item.documentoVenta
                 </td>
-                @*<td>
-                    <a class="btn btn-primary" href="Cliente/selectCliente/@item.cli_num_doc">Editar</a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href="Cliente/deleteCliente/@item.cli_num_doc">Eliminar</a>
-                </td>*@
+              
             </tr>
         Next
 
